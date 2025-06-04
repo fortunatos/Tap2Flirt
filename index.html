@@ -1,91 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <title>Tap2Flirt – Meet Real Singles Nearby</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <meta name="description" content="Meet singles nearby for quick, no-strings-attached fun. Tap2Flirt makes it easy." />
-  <link rel="icon" href="https://tap2flirt.site/favicon.ico" />
+  <title>Tap2Flirt</title>
+
+  <!-- Google Analytics -->
+  <script async src='https://www.googletagmanager.com/gtag/js?id=G-4RK11EWEJE'></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4RK11EWEJE');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"/>
+  <link href="https://maturelovers.club/alecia/378f0dd4826e490864d2573ce6719e6e.static.css" rel="stylesheet"/>
+  <meta content="#ffffff" name="msapplication-TileColor"/>
+  <meta content="https://maturelovers.club/alecia/theme/australianlocals/images/favicon/ms-icon-144x144.png" name="msapplication-TileImage"/>
+
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: #111;
       font-family: Arial, sans-serif;
-      color: #fff;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
+      color: white;
     }
 
-    h1 {
-      font-size: 26px;
-      margin-bottom: 20px;
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://maturelovers.club/alecia/in_css_7b82a3f147c0b6b1b41b141976336713.static.jpg') no-repeat center top fixed;
+      animation: zoomInOut 4s infinite;
+      -webkit-animation: zoomInOut 4s infinite;
+      z-index: -1;
     }
 
-    .btn {
-      background-color: #cc0000;
-      color: #fff;
-      text-decoration: none;
+    @media (max-width: 768px) {
+      .background-image {
+        background-size: cover;
+      }
+    }
+
+    .btn-primary {
+      background-color: #e60073;
       padding: 15px 30px;
+      color: white;
+      text-decoration: none;
       border-radius: 5px;
-      font-size: 18px;
       font-weight: bold;
+      text-align: center;
       display: inline-block;
+      margin: 20px 0;
+      animation: pulse 2s infinite;
+    }
+
+    .btn-primary:hover {
+      background-color: #bf005f;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .seo-description {
+      color: white;
+      text-align: center;
+      font-size: 18px;
+      max-width: 80%;
+      margin: 20px auto;
+    }
+
+    .city-message {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
       margin-top: 25px;
     }
 
-    .btn:hover {
-      background-color: #990000;
-    }
-
-    .location {
-      margin-top: 20px;
+    .online-count {
+      text-align: center;
       font-size: 16px;
-      color: #ccc;
+      opacity: 0.85;
+      margin-top: 10px;
     }
 
-    .disclaimer {
-      font-size: 12px;
-      color: #666;
-      margin-top: 40px;
+    .website-container {
+      padding-top: 60px;
+    }
+
+    .step-title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 auto 20px;
+      max-width: 85%;
     }
   </style>
-
- <!-- Google tag (gtag.js) -->
-    <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-4RK11EWEJE'></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-4RK11EWEJE');
-    </script>
-
 </head>
 
 <body>
-  <h1>Real singles want to meet you now</h1>
+  <div class="background-image"></div>
+  <div class="website-container">
 
-  <a href="https://bgfffig.hornylocls.com/s/63d00e240fcd5?subsource=Tap2Flirt" class="btn">Tap to flirt now</a>
+    <div class="step step_0" style="display: block;">
+      <div class="step-title">
+        Tap2Flirt: Meet hot, real women in your area looking to connect!
+      </div>
 
-  <div class="location" id="location-text">Searching for singles near you...</div>
+      <a href="https://bgfffig.hornylocls.com/s/63d00e240fcd5?subsource=Tap2Flirt">
+        <span class="btn-primary">Tap to see who’s waiting</span>
+      </a>
 
-  <div class="disclaimer">18+ only. Tap2Flirt is for adults seeking casual encounters.</div>
+      <div id="cityMessage" class="city-message">Searching for nearby profiles...</div>
+      <div id="userCount" class="online-count">🔥 38 women are online near you</div>
 
+      <div class="seo-description">
+        Private encounters, instant chats, real people. Start now.
+      </div>
+
+      <div style="clear:both"></div>
+    </div>
+
+  </div>
+
+  <!-- Localização via IP -->
   <script>
     fetch("https://ipapi.co/json/")
       .then(res => res.json())
       .then(data => {
-        const city = data.city;
-        if (city) {
-          document.getElementById('location-text').innerText = `Singles in ${city} are waiting!`;
-        }
+        const city = data.city || "your area";
+        document.getElementById("cityMessage").innerText = `Hot singles in ${city} are ready to chat now.`;
       });
   </script>
-</body>
 
+  <!-- Contador falso de usuárias online -->
+  <script>
+    let count = 38;
+    setInterval(() => {
+      count += (Math.random() > 0.5 ? 1 : -1);
+      if (count < 25) count = 25;
+      if (count > 50) count = 50;
+      document.getElementById("userCount").innerText = `🔥 ${count} women are online near you`;
+    }, 4000);
+  </script>
+
+</body>
 </html>
